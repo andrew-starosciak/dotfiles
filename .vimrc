@@ -1,4 +1,4 @@
-set encodingutf-8
+set encoding=utf-8
 
 set background=dark
 

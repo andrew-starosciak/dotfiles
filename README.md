@@ -16,3 +16,14 @@ cd .vim/bundles/coc.nvim
 npm i
 npm run build
 ```
+
+## Installing NEOVIM 
+
+The latest version 5.0+ give's us the ability of using lsp-config.
+
+1 - Uninstall old (sudo apt-get --purge remove neovim)
+2 - Install from here (https://github.com/neovim/neovim/releases)
+3 - Make it executable with chmod +x neovim.appimage.
+4 - Place it in your $PATH: sudo mv neovim.appimage /usr/local/bin/nvim
+
+
