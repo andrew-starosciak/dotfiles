@@ -1,5 +1,11 @@
 " Description: Keymaps
 
+" ------- Common 
+"  Jumping Back Location - Ctrl + o 
+"  Jumping Forward Location - Ctrl + i
+"
+" -------
+
 " Delete without yank
 nnoremap <leader>d "_d
 
@@ -53,6 +59,8 @@ map <leader>tc :tabclose<CR>
 map <leader>tm :tabmove<CR>
 map <leader>n :tabn<CR>
 map <leader>p :tabp<CR>
+
+nnoremap <silent> ca <cmd>lua vim.lsp.buf.code_action()<CR>
 
 " Finding files - Search down into subfolders
 set path+=**

@@ -14,6 +14,8 @@ local protocol = require'vim.lsp.protocol'
 
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+
   -- Mappings.
   local opts = { noremap=true, silent=true }
   buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
@@ -21,30 +23,6 @@ local on_attach = function(client, bufnr)
   --...
   -- LSP Signature
   require'lsp_signature'.on_attach()
-end
--- TypeScript
-nvim_lsp.tsserver.setup {
-  on_attach = on_attach,
-  filetypes = { "typescript" }
-}
-
--- Used to install our LSP Language Services.
-require'lspinstall'.setup() -- important
-
-local servers = require'lspinstall'.installed_servers()
-for _, server in pairs(servers) do
-  require'lspconfig'[server].setup{}
-end
-EOF
-
-lua << EOF
--- Completion
--- Use an on_attach function to only map the following keys 
--- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
-  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-
  require'completion'.on_attach(client, bufnr)
 
   --protocol.SymbolKind = { }
@@ -76,4 +54,31 @@ local on_attach = function(client, bufnr)
     '', -- TypeParameter
   }
 end
+-- TypeScript
+nvim_lsp.tsserver.setup {
+  on_attach = on_attach,
+  filetypes = { "typescript" }
+}
+
+-- Used to install our LSP Language Services.
+require'lspinstall'.setup() -- important
+
+local servers = require'lspinstall'.installed_servers()
+for _, server in pairs(servers) do
+  require'lspconfig'[server].setup{}
+end
+EOF
+
+lua << EOF
+-- Completion
+-- Use an on_attach function to only map the following keys 
+-- after the language server attaches to the current buffer
+vim.lsp.handlers['textDocument/codeAction'] = require'lsputil.codeAction'.code_action_handler
+-- vim.lsp.handlers['textDocument/references'] = require'lsputil.locations'.references_handler
+-- vim.lsp.handlers['textDocument/definition'] = require'lsputil.locations'.definition_handler
+-- vim.lsp.handlers['textDocument/declaration'] = require'lsputil.locations'.declaration_handler
+-- vim.lsp.handlers['textDocument/typeDefinition'] = require'lsputil.locations'.typeDefinition_handler
+-- vim.lsp.handlers['textDocument/implementation'] = require'lsputil.locations'.implementation_handler
+-- vim.lsp.handlers['textDocument/documentSymbol'] = require'lsputil.symbols'.document_handler
+-- vim.lsp.handlers['workspace/symbol'] = require'lsputil.symbols'.workspace_handler
 EOF

@@ -32,10 +32,17 @@ if has("nvim")
     " Dashboard
     Plug 'glepnir/dashboard-nvim'
 
+    " Auto Import popover
+    Plug 'RishabhRD/popfix'
+    Plug 'RishabhRD/nvim-lsputils'
+
     " Autocomplete
     Plug 'nvim-lua/completion-nvim'
     " Complete Signature
     Plug 'ray-x/lsp_signature.nvim'
+    
+    " Tabnine
+    Plug 'codota/tabnine-vim'
 endif
 
 " File Explorer with Icons
