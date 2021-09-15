@@ -15,7 +15,9 @@ if has("nvim")
     Plug 'kabouzeid/nvim-lspinstall'
 
     " NVIM Theme
-    Plug 'EdenEast/nightfox.nvim'
+    " Plug 'EdenEast/nightfox.nvim'
+    Plug 'drewtempelmeyer/palenight.vim'
+    Plug 'larsbs/vimterial_dark'
 
     " Telescope
     Plug 'nvim-lua/popup.nvim'
@@ -23,11 +25,19 @@ if has("nvim")
     Plug 'nvim-telescope/telescope.nvim'
 
     Plug 'windwp/nvim-autopairs'
+    " Auto close parentheses
+    Plug 'cohama/lexima.vim'
     Plug 'kyazdani42/nvim-web-devicons'
     Plug 'folke/trouble.nvim'
 
     " Markdown Preview
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npm install'  }
+
+    " Comment Enhancer
+    Plug 'preservim/nerdcommenter'
+
+    " Formatting a File
+    Plug 'sbdchd/neoformat'
 
     " Dashboard
     Plug 'glepnir/dashboard-nvim'
@@ -41,9 +51,20 @@ if has("nvim")
     " Complete Signature
     Plug 'ray-x/lsp_signature.nvim'
     
-    " Tabnine
-    Plug 'codota/tabnine-vim'
+    " LSP Completion
+    Plug 'hrsh7th/nvim-cmp'
+    Plug 'hrsh7th/cmp-buffer'
+    Plug 'hrsh7th/cmp-nvim-lsp'
+    Plug 'nvim-treesitter/nvim-treesitter'
+    Plug 'nvim-treesitter/completion-treesitter'
+    Plug 'aca/completion-tabnine', { 'do': './install.sh' }
+
+    " Making a personal Wiki
+    Plug 'vimwiki/vimwiki'
 endif
+
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 
 " File Explorer with Icons
 Plug 'preservim/nerdtree'

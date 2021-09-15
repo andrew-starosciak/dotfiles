@@ -30,7 +30,7 @@ set backspace=indent,eol,start
 " Disable audible bell
 set noerrorbells visualbell t_vb=
 
-set shell=/bin/zsh
+set shell=/bin/bash
 
 " Set to auto read when a file is changed from the outside
 set autoread
@@ -90,7 +90,7 @@ set wrap
 
 set nocompatible              " be iMproved, required
 
-filetype off                  " required
+filetype on                  " required
 
 " Enables syntax highlighting
 syntax enable
@@ -134,7 +134,7 @@ if exists("&termguicolors") && exists("&winblend")
   syntax enable
   set termguicolors
   set background=dark
-  colorscheme nightfox
+  colorscheme palenight 
 endif
 
 "}}}

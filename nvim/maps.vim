@@ -61,6 +61,13 @@ map <leader>n :tabn<CR>
 map <leader>p :tabp<CR>
 
 nnoremap <silent> ca <cmd>lua vim.lsp.buf.code_action()<CR>
+nnoremap <silent> gD <cmd>lua vim.lsp.buf.implementation()<CR>
+
+" Telescope
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " Finding files - Search down into subfolders
 set path+=**

@@ -6,4 +6,13 @@ set completeopt=menuone,noinsert,noselect
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-
+let g:completion_confirm_key = ""
+let g:completion_chain_complete_list = {
+        \ 'default' : {
+        \   'default': [
+        \       {'complete_items': ['lsp', 'snippet', 'path']},
+        \       {'mode': '<c-p>'},
+        \       {'mode': '<c-n>'}],
+        \   'comment': []
+        \   }
+        \}
