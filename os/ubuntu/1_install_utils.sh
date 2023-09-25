@@ -8,3 +8,5 @@ sudo pip3 install tldr
 # Terminal
 sudo snap install alacritty --classic
 
+# Starship.rs
+curl -sS https://starship.rs/install.sh | sh
