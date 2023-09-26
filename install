@@ -1,0 +1,15 @@
+#!/bin/bash
+
+function get_full_path {
+    echo $(realpath $(dirname $0)/$1)
+}
+
+files=$(ls $(get_full_path)/.config)
+for dotfile in $files; do
+    path="$(get_full_path)/.config/$dotfile"
+    rm -rf $HOME/.config/$dotfile
+    link_args="$path $HOME/.config"
+    ln -s $link_args
+done
+
+echo "Linked Configs."S

@@ -1,13 +1,30 @@
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
-end
-vim.opt.rtp:prepend(lazypath)
-require("lazy").setup("plugins")
+---------------------------------------------------------------------
+--                                                                 --
+--   ,--.   ,--.         ,--.                  ,--.   ,--.         --
+--   |   `.'   |,--. ,--.|  | ,---.  ,---.     |   `.'   | ,---.   --
+--   |  |'.'|  | \  '  / |  || .-. :(  .-'     |  |'.'|  || .-. |  --
+--   |  |   |  |  \   '  |  |\   --..-'  `)    |  |   |  |' '-' '  --
+--   `--'   `--'.-'  /   `--' `----'`----'     `--'   `--' `---'   --
+--              `---'                                              --
+--                                                                 --
+--              https://github.com/emxxjnm/nvim                    --
+---------------------------------------------------------------------
+
+local g, fn = vim.g, vim.fn
+
+g.mapleader = " "
+g.maplocalleader = " "
+
+local namespace = {
+  styles = {},
+  settings = {
+    metadir = ".vim",
+    swapdir = fn.stdpath("cache") .. "/swap",
+    undodir = fn.stdpath("cache") .. "/undo",
+    backupdir = fn.stdpath("cache") .. "/backup",
+  },
+}
+
+_G.mo = mo or namespace
+
+require("mvim.config").setup()

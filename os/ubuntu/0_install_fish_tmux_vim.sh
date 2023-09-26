@@ -26,7 +26,7 @@ declare -a packages=(
 	"fd-find"
 	"bat"
 	"libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev"
-	"python3 python3-dev python3-pip python3-tk"
+	"python3 python3-dev python3-pip python3-tk python3-venv"
     "ranger nnn"
     "universal-ctags"
 )
@@ -52,6 +52,9 @@ ls -s /usr/bin/batcat ~/.local/bin/bat
 
 # Install snaps
 sudo snap install -y dragon # dragndrop for nnn
+
+# Install Go.
+sudo snap install go --classic
 
 # Note. Git configured through gcm
 
