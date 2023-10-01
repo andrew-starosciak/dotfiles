@@ -23,7 +23,7 @@ declare -a packages=(
     "software-properties-common"
 	"fish tmux fzf ripgrep net-tools"
 	"polybar"
-	"fd-find"
+	"fd-find shellcheck shfmt"
 	"bat"
 	"libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev"
 	"python3 python3-dev python3-pip python3-tk python3-venv"
