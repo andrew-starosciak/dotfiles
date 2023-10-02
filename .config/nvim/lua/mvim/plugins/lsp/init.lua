@@ -272,22 +272,23 @@ local M = {
 
           -- formatting
           nls.builtins.formatting.prettier.with({
-    filetypes = {
-      "javascript",
-      "typescript",
-      "css",
-      "scss",
-      "html",
-      "json",
-      "yaml",
-      "markdown",
-      "graphql",
-      "md",
-      "txt",
-      "lua"
-    },
-    only_local = "node_modules/.bin",
-  }),
+            filetypes = {
+              "javascript",
+              "typescript",
+              "css",
+              "scss",
+              "html",
+              "json",
+              "yaml",
+              "markdown",
+              "graphql",
+              "md",
+              "txt",
+              "lua",
+              "svelte",
+            },
+            only_local = "node_modules/.bin",
+          }),
         },
         root_dir = require("null-ls.utils").root_pattern("Makefile", ".vim", ".git"),
       }
