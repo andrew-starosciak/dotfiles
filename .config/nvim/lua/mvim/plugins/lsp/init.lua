@@ -1,3 +1,15 @@
+local uv = vim.loop
+local function get_node_modules(root_dir)
+  local root_node = root_dir .. "node_modules"
+  local stats = uv.fs_stat(root_node)
+  if stats == nil then
+    return ""
+  else
+    return root_node
+  end
+end
+local default_node_modules = get_node_modules(vim.fn.getcwd())
+
 local M = {
   {
     "williamboman/mason-lspconfig.nvim",
@@ -173,6 +185,28 @@ local M = {
       -- return true if you don't want this server to be setup with lspconfig
       ---@type table<string, fun(server:string, opts: table):boolean?>
       setup = {
+        angularls = function(_, opts)
+          opts.cmd = {
+            "ngserver",
+            "--stdio",
+            "--tsProbeLocations",
+            default_node_modules,
+            "--ngProbeLocations",
+            default_node_modules,
+            "--includeCompletionsWithSNippetText",
+            "--includeAutomaticOptionalChainCompletions",
+          }
+          opts.capabilities = {
+            textDocument = {
+              completion = {
+                completionItem = {
+                  snippetSupport = true,
+                },
+              },
+            },
+          }
+          opts.root_dir = require("lspconfig.util").root_pattern(".git")
+        end,
         -- example to setup with typescript.nvim
         -- tsserver = function(_, opts)
         --   require("typescript").setup({ server = opts })
