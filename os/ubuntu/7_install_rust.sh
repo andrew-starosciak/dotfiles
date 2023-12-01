@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 # Note. In Fish terminal we need to source the path correctly.
@@ -32,3 +31,6 @@ cargo +nightly install evcxr
 
 # benchmarking
 cargo install hyperfine
+
+# Generate
+cargo install cargo-generate
